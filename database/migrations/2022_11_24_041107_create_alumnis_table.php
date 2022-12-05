@@ -15,11 +15,13 @@ class CreateAlumnisTable extends Migration
     {
         Schema::create('alumnis', function (Blueprint $table) {
             $table->id();
+            $table->char('jurusan_id', 5);
             $table->char('nisn', 15);
-            $table->text('name', 50);
-            $table->text('email');
+            $table->char('nik', 20);
+            $table->char('nis', 10);
+            $table->string('name', 50);
+            $table->string('email');
             $table->bigInteger('nomer');
-            $table->text('jurusan');
             $table->integer('tahun_lulus');
             $table->timestamps();
         });
