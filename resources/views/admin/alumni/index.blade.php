@@ -24,7 +24,6 @@
         <th>Email</th>
         <th>Nomor Hp</th>
         <th>Tahun Lulus</th>
-        <th id="aksi">Aksi</th>
       </tr>
       @forelse($alumni as $data) 
         <tr>
@@ -33,10 +32,6 @@
           <td>{{$data->email}}</td>
           <td>{{$data->nomer}}</td>
           <td>{{ $data->tahun_lulus }}</td>
-          <td id="aksi">
-            <a href="" class="btn btn-info">Edit</a>
-            <a href="" id="delete" class="btn btn-danger">Delete</a>
-          </td>
         </tr>
       @empty
       <tr>
