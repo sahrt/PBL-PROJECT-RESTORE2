@@ -19,12 +19,12 @@
         <td>{{$data->nama_jurusan}}</td>
         <td class="aksi">
           <a href="{{ route('ubah-jurusan',$data->id) }}" class="btn btn-info">Edit</a>
-          <a href="" id="delete" class="btn btn-danger">Delete</a>
+          <a href="{{ route('delete-jurusan',$data->id) }}" id="delete" class="btn btn-danger">Delete</a>
         </td>
       </tr>
       @empty
       <tr>
-        <td colspan="6"><h3 class="text-center" style="opacity: 50%"> Belum Data Alumni</h3></td>
+        <td colspan="6"><h3 class="text-center" style="opacity: 50%">Data Jurusan Belum Ada</h3></td>
       </tr>
       @endforelse 
     </table>
