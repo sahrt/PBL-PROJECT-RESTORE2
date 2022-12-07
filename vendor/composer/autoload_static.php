@@ -581,6 +581,7 @@ class ComposerStaticInit5aa316f1163d695b5c7f02da75b2baea
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\API\\alumni\\alumniController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/alumni/alumniController.php',
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\TraceController' => __DIR__ . '/../..' . '/app/Http/Controllers/TraceController.php',
@@ -595,6 +596,8 @@ class ComposerStaticInit5aa316f1163d695b5c7f02da75b2baea
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Models\\Jurusan' => __DIR__ . '/../..' . '/app/Models/Jurusan.php',
+        'App\\Models\\Prestasi' => __DIR__ . '/../..' . '/app/Models/Prestasi.php',
+        'App\\Models\\Punya_Prestasi' => __DIR__ . '/../..' . '/app/Models/Punya_Prestasi.php',
         'App\\Models\\Tracer_answer' => __DIR__ . '/../..' . '/app/Models/Tracer_answer.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\alumni' => __DIR__ . '/../..' . '/app/Models/alumni.php',

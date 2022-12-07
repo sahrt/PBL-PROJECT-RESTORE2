@@ -32,16 +32,6 @@
                 <h4>5. Seberapa erat hubungan antara bidang studi dengan pekerjaan anda?</h4>
                </div>
             <div class="container"> 
-                 
-              <div class="  label-background form-check border rounded"  style="padding:5px; margin: 2px; ">
-                <button class="btn  button"  type="button">
-                 <input type="radio" name="hubungan" id="from-AFIRMASI" value="Sangat Erat" style="width: 20px;">
-                 <label class="form-check-label" for="from-AFIRMASI" >
-                  Sangat Erat
-                </label> 
-              
-                </button>
-              </div>
        
               <div class="  label-background form-check border rounded"  style="padding:5px; margin: 2px; ">
                 <button class="btn  button"  type="button">
@@ -53,15 +43,7 @@
                 </button>
               </div>
 
-              <div class="  label-background form-check border rounded"  style="padding:5px; margin: 2px; ">
-                <button class="btn  button"  type="button">
-                 <input type="radio" name="hubungan" id="from-AFIRMASI" value="Kurang Erat">
-                 <label class="form-check-label" for="from-AFIRMASI" >
-                  Kurang Erat
-                </label> 
-              
-                </button>
-              </div>
+         
             
                 <div class="  label-background form-check border rounded"  style="padding:5px; margin: 2px; ">
                   <button class="btn  button"  type="button">
@@ -73,7 +55,7 @@
                   </button>
                 </div>
             <div class="button d-flex justify-content-between" style="margin-top: 20px; margin-left:10px; margin-right:10px;">
-                 <a href="{{ route('soal4',['nisn'=>$user->nisn]) }}">
+                 <a href="{{ route('viewSoal',['soal'=>'soal4']) }}">
                    <button type="button" class="btn btn-primary">Back</button>
                 </a> 
                     <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Simpan</button>

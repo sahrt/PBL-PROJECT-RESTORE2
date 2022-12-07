@@ -26,7 +26,7 @@
               <input type="hidden" name="id" value="{{ $user->id }}">
               <input type="hidden" name="nisn" value="{{ $user->nisn }}">
             <div class="title pt-4">
-                <h4>2. Berapa bulan waktu yang dibutuhkan (sebelum atau sesudah kelulusan)untuk memperoleh pekerjaan/wirausaha pertama?</h4>
+                <h4>2. Berapa bulan waktu yang dibutuhkan dari sekolah sampai Anda Masuk Dunia Pekerjaan saat ini ?</h4>
                </div>
             <div class="container"> 
               
@@ -72,7 +72,7 @@
 
 
             <div class="button d-flex justify-content-between" style="margin-top: 20px; margin-left:10px; margin-right:10px;">
-                <a href="{{ route('soal1',['nisn'=>$user->nisn]) }}">
+                <a href="{{ route('viewSoal',['soal'=>'page']) }}">
                    <button type="button" class="btn btn-primary">Back</button>
                 </a>
                     <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Simpan</button>
@@ -98,15 +98,13 @@
         <div class="modal-body">
           <form action="{{ route('soal2-process') }}" method="POST">
             @csrf
-            <input type="hidden" name="id" value="{{ $user->id }}">
-              <input type="hidden" name="nisn" value="{{ $user->nisn }}">
             <div class="mb-3">
-              <label for="recipient-name" class="col-form-label">masukan contoh: 12 bulan sebelum kelulusan</label>
+              <label for="recipient-name" class="col-form-label">masukan contoh: 12 </label>
               <input type="text" class="form-control" id="recipient-name" name="kategori">
             </div>
           <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Simpan</button>
+          <button type="submit" class="btn btn-success">Simpan</button>
           </div>
           </form>
         </div>

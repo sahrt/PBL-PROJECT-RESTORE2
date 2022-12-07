@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Prestasi extends Migration
+class CreatePrestasisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,6 +15,7 @@ class Prestasi extends Migration
     {
         Schema::create('prestasis', function (Blueprint $table) {
             $table->id();
+            $table->integer('id_user')->unique();
             $table->string('nama_prestasi',50);
             $table->string('juara',50);
             $table->string('tingkat',50);

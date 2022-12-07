@@ -24,17 +24,15 @@
       <div class="row justify-content-center " style="padding: 20px;">
         <form action="{{ route('soal4-process') }}" method="post">
           @csrf
-          <input type="hidden" name="id" value="{{ $user->id }}">
-          <input type="hidden" name="nisn" value="{{ $user->nisn }}">
             <div class="title pt-4">
-                <h4>Tingkat pendidikan apa yang paling tepat/sesuai untuk pekerjaan anda saat ini? </h4>
+                <h4>4. Tingkat lulusan pendidikan apa untuk masuk pekerjaan anda saat ini? </h4>
                </div>
             <div class="container"> 
               <div class="  label-background form-check border rounded"  style="padding:5px; margin: 2px; ">
                 <button class="btn  button"  type="button">
-                 <input type="radio" name="tingkat" id="from-AFIRMASI" value="setingkat lebih tinggi" style="width: 20px;">
+                 <input type="radio" name="tingkat" id="from-AFIRMASI" value=" Setingkat Lebih Tinggi (D3,S1,S2)" style="width: 20px;">
                  <label class="form-check-label" for="from-AFIRMASI" >
-                  Setingkat Lebih Tinggi
+                  Setingkat Lebih Tinggi (D3,S1,S2)
                 </label> 
               
                 </button>
@@ -42,9 +40,9 @@
        
               <div class="  label-background form-check border rounded"  style="padding:5px; margin: 2px; ">
                 <button class="btn  button"  type="button">
-                 <input type="radio" name="tingkat" id="from-AFIRMASI" value="tingkat sama">
+                 <input type="radio" name="tingkat" id="from-AFIRMASI" value="Tingkat yang sama (SMA,SMK,MA)">
                  <label class="form-check-label" for="from-AFIRMASI" >
-                  Tingkat yang sama
+                  Tingkat yang sama (SMA,SMK,MA)
                 </label> 
               
                 </button>
@@ -52,9 +50,9 @@
 
               <div class="  label-background form-check border rounded"  style="padding:5px; margin: 2px; ">
                 <button class="btn  button"  type="button">
-                 <input type="radio" name="tingkat" id="from-AFIRMASI" value="tingkat rendah">
+                 <input type="radio" name="tingkat" id="from-AFIRMASI" value=" Setingkat Lebih Rendah (SMP,SD,DLL)">
                  <label class="form-check-label" for="from-AFIRMASI" >
-                  Setingkat Lebih Rendah
+                  Setingkat Lebih Rendah (SMP,SD,DLL)
                 </label> 
               
                 </button>
@@ -62,16 +60,16 @@
             
                 <div class="  label-background form-check border rounded"  style="padding:5px; margin: 2px; ">
                   <button class="btn  button"  type="button">
-                   <input type="radio" name="tingkat" id="from-AFIRMASI" value="tidak perluh pendidikan tinggi">
+                   <input type="radio" name="tingkat" id="from-AFIRMASI" value=" Tidak Perlu Pendidikan  (TIDAK BERSEKOLAH)">
                    <label class="form-check-label" for="from-AFIRMASI" >
-                   Tidak Perlu Pendidikan Tinggi
+                   Tidak Perlu Pendidikan  (TIDAK BERSEKOLAH)
                   </label> 
                 
                   </button>
                 </div>
 
             <div class="button d-flex justify-content-between" style="margin-top: 20px; margin-left:10px; margin-right:10px;">
-                 <a href="{{ route('soal3',['nisn'=>$user->nisn]) }}">
+                 <a  href="{{ route('viewSoal',['soal'=>'soal3']) }}">
                    <button type="button" class="btn btn-primary">Back</button>
                 </a>
                

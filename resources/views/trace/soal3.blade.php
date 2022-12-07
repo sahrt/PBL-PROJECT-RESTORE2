@@ -26,7 +26,7 @@
             <input type="hidden" name="id" value="{{ $user->id }}">
             <input type="hidden" name="nisn" value="{{ $user->nisn }}">
             <div class="title pt-4">
-                <h4>3. Apakah anda bekerja saat ini (termasuk sambilan / swasta) ?</h4>
+                <h4>3. Berkerja Sebagai Apa Anda Sekarang ?</h4>
                </div>
             <div class="container"> 
                   
@@ -87,7 +87,7 @@
          
             
             <div class="button d-flex justify-content-between" style="margin-top: 20px; margin-left:10px; margin-right:10px;">
-                 <a href="{{ route('soal2',['nisn'=>$user->nisn]) }}">
+                 <a href="{{ route('viewSoal',['soal'=>'soal2']) }}">
                    <button type="button" class="btn btn-primary">Back</button>
                 </a>
                     <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Simpan</button>
@@ -144,7 +144,7 @@
             </div>
           <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="sumbit" class="btn btn-primary">Send message</button>
+          <button type="sumbit" class="btn btn-success">Simpan</button>
         </div>
           
           </form>

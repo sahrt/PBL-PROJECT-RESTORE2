@@ -47,7 +47,11 @@ Route::get('/delete-jurusan/{id}', [AdminController::class, 'deleteJurusan'])->n
 //route alumni
 Route::get('/login-alumni', [TraceController::class, 'login'])->name('login-alumni');
 Route::post('/process-login', [TraceController::class, 'loginProcess'])->name('loginProcess');
+Route::get('/process-login/auth', [TraceController::class,'authenticateSiswa'])->name('auth-login');
 //end routing alumni
+
+//auticae siswa
+
 
 //memberikan penjelasan umum
 //route soal 1
@@ -69,6 +73,8 @@ Route::prefix('/tracer-study/qusetion')->group(function () {
     Route::post('/soal6/process', [TraceController::class, 'soal6Process'])->name('soal6-process');
     //soal7
     Route::post('/soal7/process', [TraceController::class, 'soal7Process'])->name('soal7-process');
+    //soal8
+    Route::post('/soal8/process',[TraceController::class,'soal8Process'])->name('soal8-process');
     //finish
-    Route::get('/finish', [TraceController::class,  'finish'])->name('finish');
+    Route::get('/finish', [TraceController::class,  'finish'])->name('finish-page');
 });

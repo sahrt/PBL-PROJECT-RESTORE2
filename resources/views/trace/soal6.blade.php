@@ -26,7 +26,7 @@
           <input type="hidden" name="id" value="{{ $user->id }}">
           <input type="hidden" name="nisn" value="{{ $user->nisn }}">
             <div class="title pt-4">
-                <h4>6. Skill Yang Ingin Kamu Kembangkan</h4>
+                <h4>6. Gaji Pekerjaan Yang Anda Dapat ? </h4>
                </div>
             <div class="container"> 
               <div class="  label-background form-check  rounded"  style="padding:5px; ">
@@ -53,14 +53,12 @@
                   Dari Perkerjaan Lainya (Rp.)
                 </label> 
                  <input class="form-control" type="number" name="gaji_lain" id="from-AFIRMASI" required>
-               
-
               </div>
 
                  
 
             <div class="button d-flex justify-content-between" style="margin-top: 20px; margin-left:10px; margin-right:10px;">
-                  <a href="{{ route('soal5',['user'=>$user->nisn]) }}">
+                  <a  href="{{ route('viewSoal',['soal'=>'soal5']) }}">
                    <button type="button" class="btn btn-primary">Back</button>
                 </a> 
                     <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Simpan</button>

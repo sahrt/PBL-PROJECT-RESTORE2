@@ -21,36 +21,36 @@
       </div>
 
       <div class="row justify-content-center " style="padding: 20px;">
-        <form action="{{ route('soal7-process') }}" method="post">
+        <form action="" method="post">
           @csrf
           <input type="hidden" name="id" value="{{ $user->id }}">
           <input type="hidden" name="nisn" value="{{ $user->nisn }}">
           <input type="hidden" name="status" value="finised">
             <div class="title pt-4">
-                <h4>7. Apakah perusahaan/wirausaha anda terdampak karena adanya virus corona?</h4>
+                <h4>8. Pernah Memiliki Prestasi Pada Masa Sekolah</h4>
                </div>
             <div class="container"> 
               <div class="  label-background form-check border rounded "data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"   style="padding:15px; margin: 2px; ">
-                 <input type="radio" name="corona" id="from-AFIRMASI" value="" style="width: 20px;">
+                 <input type="radio" name="corona" id="from-AFIRMASI" style="width: 20px;" value="">
                  <label class="form-check-label" for="from-AFIRMASI" >
-                  Ya Terdampak
+                  Ya
                 </label> 
 
               </div>
        
               <div class="  label-background form-check border rounded"  style="padding:15px; margin: 2px; ">
-                 <input type="radio" name="terdampak" id="from-AFIRMASI" value="tidak">
-                 <label class="form-check-label" for="from-AFIRMASI" >
-                  Tidak Terdampak
+                 <input type="radio" name="terdampak" id="from-AFIRMASI2" value="tidak ada">
+                 <label class="form-check-label" for="from-AFIRMASI2" >
+                  Tidak
                 </label> 
               </div>
 
 
             <div class="button d-flex justify-content-between" style="margin-top: 20px; margin-left:10px; margin-right:10px;">
-                  <a  href="{{ route('viewSoal',['soal'=>'soal6']) }}">
-                   <button type="button" class="btn btn-primary">Kembali</button>
+                  <a href="{{ route('viewSoal',['soal'=>'soal7']) }}">
+                   <button type="button" class="btn btn-primary">Back</button>
                 </a> 
-                    <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Simpan</button>
+                    <button type="submit" class="btn btn-success" data-bs-dismiss="modal">finish</button>
               
             </div>
         </form>
@@ -68,47 +68,53 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Silahkan pilih dampaknya</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Silahkan Isi Keterangan Kejuaraan</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="{{ route('soal7-process') }}" method="POST">
+          <form action="{{ route('soal8-process') }}" method="POST">
             @csrf
-            <input type="hidden" name="terdampak" value="ya">
             <div class="  label-background form-check border rounded"  style="padding:15px; margin: 2px; ">
-
-              <!-- 1 -->
-              <input type="radio" name="akibat" id="from-AFIRMASI" value="  Kehilangan Pekerjaan">
-              <label class="form-check-label" for="from-AFIRMASI" >
-                Kehilangan Pekerjaan
+             <label class="form-check-label" for="from-AFIRMASI" >
+                Nama Prestasi
              </label> 
+             <br>
+             <br>
+              <input type="text" class="form-control" name="nama_prestasi" id="from-AFIRMASI" placeholder="masukan Prestasi Kamu" required>
            </div>
               <div class="  label-background form-check border rounded"  style="padding:15px; margin: 2px; ">
-              <input type="radio" name="akibat" id="from-AFIRMASI" value="Pendapatan Menurun">
-              <label class="form-check-label" for="from-AFIRMASI" >
-                Pendapatan Menurun
-             </label> 
+                <label class="form-check-label" for="from-AFIRMASI" >
+                 Tingkat Kejuaraan
+                </label> 
+                <br>
+                <br>
+              <input type="text" class="form-control" name="juara" id="from-AFIRMASI" placeholder="juara berapa" required >
+             
               </div>
-              <div class="  label-background form-check border rounded"  style="padding:15px; margin: 2px; ">
-              <input type="radio" name="akibat" id="from-AFIRMASI" value="Pendapatan Meningkat">
+            <div class="  label-background form-check border rounded"  style="padding:15px; margin: 2px; " >
               <label class="form-check-label" for="from-AFIRMASI" >
-                Pendapatan Meningkat
-             </label> 
+                Lingkup Kejuaraan
+             </label>
+             <br>
+             <br> 
+             <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="tingkat" required>
+                <option selected>Pilih Tingkat Prestasi Kejuaraan Kamu</option>
+                <option value="lokal">Lokal</option>
+                <option value="kabupaten">Kabupaten</option>
+                <option value="provinsi">Provinsi</option>
+                <option value="nasional">Nasional</option>
+                <option value="internasional">Internasional</option>
+              </select>
               </div>
                <div class="  label-background form-check border rounded"  style="padding:15px; margin: 2px; ">
-                <input type="radio" name="akibat" id="from-AFIRMASI" value="Ahli Profesi">
                  <label class="form-check-label" for="from-AFIRMASI" >
-                  Ahli Profesi
-              </label> 
+                  Peran Kejuaraan
+                 </label> 
+                 <br>
+                 <br>
+                <input type="Text" class="form-control" name="peran" id="from-AFIRMASI" placeholder="masukan peran anda" required>
+                
               </div>
-              <div class="  label-background form-check border rounded akibat"  style="padding:15px; margin: 2px; ">
-                <input type="radio" name="akibat" id="from-AFIRMASI" >
-                 <label class="form-check-label " for="from-AFIRMASI" >
-                  Lainya
-              </label> 
-              </div>
-            <div class="mb-3 " id="div_question">
-            </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-success">Simpan</button>

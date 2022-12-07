@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class PunyaPrestasi extends Migration
+class CreatePunyaPrestasisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class PunyaPrestasi extends Migration
      */
     public function up()
     {
-         Schema::create('punya_prestasi', function (Blueprint $table) {
+        Schema::create('punya__prestasis', function (Blueprint $table) {
             $table->id();
             $table->integer('id_nisn');
             $table->integer('id_prestasi');
@@ -29,6 +29,6 @@ class PunyaPrestasi extends Migration
      */
     public function down()
     {
-         Schema::dropIfExists('punya_prestasi');
+        Schema::dropIfExists('punya__prestasis');
     }
 }
