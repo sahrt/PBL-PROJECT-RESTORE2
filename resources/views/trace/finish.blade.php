@@ -1,4 +1,4 @@
-
+\
 @extends('layouts/main')
 
 
@@ -9,7 +9,7 @@
         <h4 class="alert-heading">Well done! Selamat Pengisihan Anda simpan</h4>
         <p>Yeah Jangan Lupakan Dari Mana kamu berasal, jadilah kebanggan kami, semnagat menjalani hidup, </p>
         <hr>
-        <p class="mb-0">Silahkan Kembalih ke <a href="{{ url('/') }}">Home</a></p>
+        <p class="mb-0">Silahkan Kembalih ke <a href="{{ route('back-home') }}">Home</a></p>
       </div> 
     </div>
 

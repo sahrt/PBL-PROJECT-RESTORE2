@@ -6,6 +6,34 @@
   <div class="container" style="padding-top: 50px;">
       <h1 style="color: white;">Hallo, {{$user->name}}</h1>
       <p style="color:wheat;">Ayo Persiapkan Tujuan Hidupmu, Masa Sekolah bukan Akhir segalahnya Semangat <br> Jadilah Orang Yang Bermanfaat</p>
+            @if (Session::has('success'))
+      <div class="alert alert-success">
+          {{ Session::get('success') }}
+          @php
+              Session::forget('success');
+          @endphp
+      </div>
+  @endif
+  @if (Session::has('error'))
+      <div class="alert alert-warning">
+          {{ Session::get('error') }}
+          @php
+              Session::forget('error');
+          @endphp
+      </div>
+  @endif
+
+  <!-- Menampilkan Error form validation -->
+  @if ($errors->any())
+  <div class="alert alert-danger">
+       <ul>
+          @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+  </div>
+@endif
+  </div>
     </div>
   </div>
 
@@ -78,31 +106,31 @@
             <div class="  label-background form-check border rounded"  style="padding:15px; margin: 2px; ">
 
               <!-- 1 -->
-              <input type="radio" name="akibat" id="from-AFIRMASI" value="  Kehilangan Pekerjaan">
+              <input type="radio" name="dampak_corona" id="from-AFIRMASI" value="  Kehilangan Pekerjaan">
               <label class="form-check-label" for="from-AFIRMASI" >
                 Kehilangan Pekerjaan
              </label> 
            </div>
               <div class="  label-background form-check border rounded"  style="padding:15px; margin: 2px; ">
-              <input type="radio" name="akibat" id="from-AFIRMASI" value="Pendapatan Menurun">
+              <input type="radio" name="dampak_corona" id="from-AFIRMASI" value="Pendapatan Menurun">
               <label class="form-check-label" for="from-AFIRMASI" >
                 Pendapatan Menurun
              </label> 
               </div>
               <div class="  label-background form-check border rounded"  style="padding:15px; margin: 2px; ">
-              <input type="radio" name="akibat" id="from-AFIRMASI" value="Pendapatan Meningkat">
+              <input type="radio" name="dampak_corona" id="from-AFIRMASI" value="Pendapatan Meningkat">
               <label class="form-check-label" for="from-AFIRMASI" >
                 Pendapatan Meningkat
              </label> 
               </div>
                <div class="  label-background form-check border rounded"  style="padding:15px; margin: 2px; ">
-                <input type="radio" name="akibat" id="from-AFIRMASI" value="Ahli Profesi">
+                <input type="radio" name="dampak_corona" id="from-AFIRMASI" value="Ahli Profesi">
                  <label class="form-check-label" for="from-AFIRMASI" >
                   Ahli Profesi
               </label> 
               </div>
-              <div class="  label-background form-check border rounded akibat"  style="padding:15px; margin: 2px; ">
-                <input type="radio" name="akibat" id="from-AFIRMASI" >
+              <div class="  label-background form-check border rounded "  style="padding:15px; margin: 2px; ">
+                <input type="radio" name="dampak_corona" id="from-AFIRMASI" >
                  <label class="form-check-label " for="from-AFIRMASI" >
                   Lainya
               </label> 

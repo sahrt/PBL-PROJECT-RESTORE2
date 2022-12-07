@@ -17,7 +17,7 @@ class CreatePunyaPrestasisTable extends Migration
             $table->id();
             $table->integer('id_nisn');
             $table->integer('id_prestasi');
-            $table->string('peran',50);
+            $table->string('peran',50)->nullable();
             $table->timestamps();
         });
     }

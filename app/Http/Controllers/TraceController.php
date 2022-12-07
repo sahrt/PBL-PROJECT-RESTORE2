@@ -118,6 +118,12 @@ class TraceController extends Controller
 
     public function soal1Process(Request $request) {
 
+
+        $request->validate([
+         'akademi' => 'required',
+        
+        ]);
+
         $key = $request->session()->get('key');
         if (Tracer_answer::where('id_user', $key->id)->first() == !null) {
             $user = Tracer_answer::where('id_user', $key->id)->first();
@@ -142,6 +148,10 @@ class TraceController extends Controller
 
     public function soal2Process(Request $request)
     {
+           $request->validate([
+                'kategori' => 'required',
+        
+            ]);
         $key = $request->session()->get('key');
         $user = Tracer_answer::where('id_user', $key->id)->first();
         $user->kategori = $request->kategori;
@@ -155,9 +165,33 @@ class TraceController extends Controller
     {
 
         $key = $request->session()->get('key');
-        $request->validate([
-            'tema' => 'required'
-        ]);
+        if ($request->tema =="Bekerja (Pegawai)" OR $request->tema == "Bekerja (Pegawai) dan wirausaha") {
+      
+            $request->validate([
+
+                'tema' => 'required',
+                'tingkat' => 'required',
+                'nama_perusahaan' => 'required',
+                'jabatan' => 'required',
+                'jenis_perusahaan' => 'required',
+                'kota' => 'required',
+                'nomer' => 'required'
+            ]);
+        } else if ($request->tema== "wirausaha"){
+            $request->validate([
+                'tema' => 'required',
+                'lesensi' => 'required',
+                'name_usaha' => 'required',
+                'bidang' => 'required',
+                'sesuai' => 'required',
+          
+            ]);
+        } else if ($request->tema == 'Tidak Bekerja' OR $request->tema == 'Melanjutkan Kuliah') {
+            $request->validate([
+                'tema' => 'required',
+            ]); 
+        }
+        
         $user = Tracer_answer::where('id_user', $key->id)->first();
         $user->tema = $request->tema;
         $user->nama_perusahaan = $request->nama_perusahaan;
@@ -179,6 +213,11 @@ class TraceController extends Controller
 
     public function soal4Process(Request $request)
     {
+         $request->validate([
+                'tingkat' => 'required',
+          
+        ]);
+
         $key = $request->session()->get('key');
         $user = Tracer_answer::where('id_user', $key->id)->first();
         $user->tingkat = $request->tingkat;
@@ -189,6 +228,11 @@ class TraceController extends Controller
     //soal5
     public function soal5Process(Request $request)
     {
+        $request->validate([
+                'hubungan' => 'required',
+          
+        ]);
+
         $key = $request->session()->get('key');
         $user = Tracer_answer::where('id_user', $key->id)->first();
         $user->hubungan = $request->hubungan;
@@ -201,6 +245,12 @@ class TraceController extends Controller
 
     public function soal6Process(Request $request)
     {
+         $request->validate([
+                'gaji_utama' => 'required',
+                'lembur' => 'required',
+                'gaji_lain' => 'required'
+        ]);
+
         $key = $request->session()->get('key');
         $user = Tracer_answer::where('id_user', $key->id)->first();
         $user->gaji_utama = $request->gaji_utama;
@@ -212,6 +262,18 @@ class TraceController extends Controller
 
     public function soal7Process(Request $request)
     {
+        if($request->terdampak == 'ya'){
+            $request->validate([
+                'terdampak' => 'required',
+                'dampak_corona' => 'required'
+            ]);
+        } else {
+            $request->validate([
+                'terdampak'=>'required'
+            ]);
+        }
+
+  
         $key = $request->session()->get('key');
         $user = Tracer_answer::where('id_user', $key->id )->first();
         $user->terdampak = $request->terdampak;
@@ -254,7 +316,6 @@ class TraceController extends Controller
 
             //setelah melakuakan pengisian presentasi maak prestasi akan dimasukan prestasi yang dimiliki
             $user->id;
-            dd($user->id);
             $data = new Punya_Prestasi();
             $data->id_nisn = $key->id;
             $data->id_prestasi = $user->id;;
@@ -272,16 +333,11 @@ class TraceController extends Controller
 
         } 
     }
-            
-    public function finish(Request $request)
-    {
-        $key = $request->session()->get('key');
-        if ($key == !null) {
-            return view('trace/' . $soal, ['user' => $key]);
-        } else {
-            return redirect()->route('login-alumni');
+        public function backHome (Request $request){
+
+            $request->session()->forget('key');
+            return view('landing');
         }
-        $request->session()->forget('key');
-        return view('trace.page-success');
-    }
+            
+  
 }

@@ -76,5 +76,7 @@ Route::prefix('/tracer-study/qusetion')->group(function () {
     //soal8
     Route::post('/soal8/process',[TraceController::class,'soal8Process'])->name('soal8-process');
     //finish
-    Route::get('/finish', [TraceController::class,  'finish'])->name('finish-page');
+    Route::get('/finish', [TraceController::class,'pageSuccess'])->name('finish-page');
+    //backHome
+    Route::get('finish/backhome', [TraceController::class,'backHome'])->name('back-home');
 });

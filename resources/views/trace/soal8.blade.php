@@ -1,3 +1,4 @@
+
 @extends('layouts/main')
 
 
@@ -6,6 +7,34 @@
   <div class="container" style="padding-top: 50px;">
       <h1 style="color: white;">Hallo, {{$user->name}}</h1>
       <p style="color:wheat;">Ayo Persiapkan Tujuan Hidupmu, Masa Sekolah bukan Akhir segalahnya Semangat <br> Jadilah Orang Yang Bermanfaat</p>
+            @if (Session::has('success'))
+      <div class="alert alert-success">
+          {{ Session::get('success') }}
+          @php
+              Session::forget('success');
+          @endphp
+      </div>
+  @endif
+  @if (Session::has('error'))
+      <div class="alert alert-warning">
+          {{ Session::get('error') }}
+          @php
+              Session::forget('error');
+          @endphp
+      </div>
+  @endif
+
+  <!-- Menampilkan Error form validation -->
+  @if ($errors->any())
+  <div class="alert alert-danger">
+       <ul>
+          @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+  </div>
+@endif
+  </div>
     </div>
   </div>
 
@@ -21,11 +50,8 @@
       </div>
 
       <div class="row justify-content-center " style="padding: 20px;">
-        <form action="" method="post">
+        <form action="{{route('soal8-process')}}" method="post">
           @csrf
-          <input type="hidden" name="id" value="{{ $user->id }}">
-          <input type="hidden" name="nisn" value="{{ $user->nisn }}">
-          <input type="hidden" name="status" value="finised">
             <div class="title pt-4">
                 <h4>8. Pernah Memiliki Prestasi Pada Masa Sekolah</h4>
                </div>
@@ -39,7 +65,7 @@
               </div>
        
               <div class="  label-background form-check border rounded"  style="padding:15px; margin: 2px; ">
-                 <input type="radio" name="terdampak" id="from-AFIRMASI2" value="tidak ada">
+                 <input type="radio" name="nama_prestasi" id="from-AFIRMASI2" value="tidak ada">
                  <label class="form-check-label" for="from-AFIRMASI2" >
                   Tidak
                 </label> 

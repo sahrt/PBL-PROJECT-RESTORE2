@@ -7,8 +7,36 @@
   <div class="container" style="padding-top: 50px;">
       <h1 style="color: white;">Hallo, {{$user->name}}</h1>
       <p style="color:wheat;">Ayo Persiapkan Tujuan Hidupmu, Masa Sekolah bukan Akhir segalahnya Semangat <br> Jadilah Orang Yang Bermanfaat</p>
-    </div>
+            @if (Session::has('success'))
+      <div class="alert alert-success">
+          {{ Session::get('success') }}
+          @php
+              Session::forget('success');
+          @endphp
+      </div>
+  @endif
+  @if (Session::has('error'))
+      <div class="alert alert-warning">
+          {{ Session::get('error') }}
+          @php
+              Session::forget('error');
+          @endphp
+      </div>
+  @endif
+
+  <!-- Menampilkan Error form validation -->
+  @if ($errors->any())
+  <div class="alert alert-danger">
+       <ul>
+          @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+          @endforeach
+      </ul>
   </div>
+@endif
+  </div>
+    </div>
+
 
 </section>
 <div class="container">

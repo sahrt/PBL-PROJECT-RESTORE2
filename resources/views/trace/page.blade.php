@@ -5,9 +5,7 @@
   <div class="container" style="padding-top: 50px; padding-bottom:10px;">
       <h1 style="color: white;">Hallo, {{ $user->name }}</h1>
       <p style="color:wheat;">Ayo Persiapkan Tujuan Hidupmu, Masa Sekolah bukan Akhir segalahnya Semangat <br> Jadilah Orang Yang Bermanfaat</p>
-    </div>
-      <!-- Alert ketika success dan error -->
-      @if (Session::has('success'))
+            @if (Session::has('success'))
       <div class="alert alert-success">
           {{ Session::get('success') }}
           @php
@@ -35,6 +33,9 @@
   </div>
 @endif
   </div>
+    </div>
+      <!-- Alert ketika success dan error -->
+
   
 
 </section><!-- End Hero -->

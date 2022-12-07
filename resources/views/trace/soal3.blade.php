@@ -6,8 +6,35 @@
   <div class="container" style="padding-top: 50px;">
       <h1 style="color: white;">Hallo, {{$user->name}}</h1>
       <p style="color:wheat;">Ayo Persiapkan Tujuan Hidupmu, Masa Sekolah bukan Akhir segalahnya Semangat <br> Jadilah Orang Yang Bermanfaat</p>
-    </div>
+            @if (Session::has('success'))
+      <div class="alert alert-success">
+          {{ Session::get('success') }}
+          @php
+              Session::forget('success');
+          @endphp
+      </div>
+  @endif
+  @if (Session::has('error'))
+      <div class="alert alert-warning">
+          {{ Session::get('error') }}
+          @php
+              Session::forget('error');
+          @endphp
+      </div>
+  @endif
+
+  <!-- Menampilkan Error form validation -->
+  @if ($errors->any())
+  <div class="alert alert-danger">
+       <ul>
+          @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+          @endforeach
+      </ul>
   </div>
+@endif
+  </div>
+    </div>
 
 </section>
 <div class="container">
@@ -23,8 +50,7 @@
       <div class="row justify-content-center " style="padding: 20px;">
         <form action="{{ route('soal3-process') }}" method="POST">
             @csrf
-            <input type="hidden" name="id" value="{{ $user->id }}">
-            <input type="hidden" name="nisn" value="{{ $user->nisn }}">
+         
             <div class="title pt-4">
                 <h4>3. Berkerja Sebagai Apa Anda Sekarang ?</h4>
                </div>
@@ -114,9 +140,8 @@
         <div class="modal-body">
           <form action="{{ route('soal3-process') }}" method="POST">
             @csrf
-            <input type="hidden" name="id" value="{{ $user->id }}">
-              <input type="hidden" name="nisn" value="{{ $user->nisn }}">
-            <input type="hidden" name="tema" value="Bekerja(Pegawai)">
+            <input type="hidden" name="tema" value="Bekerja (Pegawai) dan wirausaha">
+
             <div class="mb-3">
               <label for="recipient-name" class="col-form-label">Nama Perusahaan</label>
               <input type="text" class="form-control" id="recipient-name" name="nama_perusahaan">
@@ -139,7 +164,7 @@
               <input type="text" class="form-control" id="recipient-name" name="kota">
             </div>
             <div class="mb-3">
-              <label for="recipient-name" class="col-form-label">No Telpone Pimpinan Atasan Anda</label>
+              <label for="recipient-name" class="col-form-label">No Telpone Perusahaan</label>
               <input type="text" class="form-control" id="recipient-name" name="nomer">
             </div>
           <div class="modal-footer">
@@ -166,8 +191,6 @@
       <div class="modal-body">
         <form action="{{ route('soal3-process') }}" method="POST">
           @csrf
-          <input type="hidden" name="id" value="{{ $user->id }}">
-          <input type="hidden" name="nisn" value="{{ $user->nisn }}">
           <input type="hidden" name="tema" value="Berwirausaha">
           <div class="question">
             <p>Apakah Usaha Anda Memiliki Lesensi Hukum?</p>
