@@ -7,14 +7,14 @@
 }
 </style>
 <div class="row justify-content-center">
-    <div class="image-section justify-content-center d-flex mt-5">
+    <div class="image-section justify-content-center d-flex mt-3">
         <img class="mb-4" src="{{ asset('assets/img/logo.png') }}" width="120px">
     </div>
     <div class="title text-center text-white">
         <h2>Login Admin</h2>
         <h5>Di Sistem Lacak Alumni SMK Negeri Ihya'Ulumudin</h5>
     </div>
-    <div class="col-md-3" style="margin-top: 50px">
+    <div class="col-md-3" style="margin-top: 23px">
         <main class="form-signin bg-white px-3 py-4 rounded-3 shadow">
             <form action="{{ route('loginAdmin') }}" method="post">
                 @csrf

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Tracer_answer extends Model
 {
     use HasFactory;
+
+    public function alumni()
+    {
+        return $this->hasOne(alumni::class);
+    }
 }

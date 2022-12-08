@@ -54,7 +54,7 @@
               <input type="hidden" name="id" value="{{ $user->id }}">
               <input type="hidden" name="nisn" value="{{ $user->nisn }}">
             <div class="title pt-4">
-                <h4>2. Berapa bulan waktu yang dibutuhkan dari sekolah sampai Anda Masuk Dunia Pekerjaan saat ini ?</h4>
+                <h4>2. Berapa Lama Anda Mendapat Pekerjaan Setelah Anda Lulus Sekolah ?</h4>
                </div>
             <div class="container"> 
               
@@ -127,7 +127,7 @@
           <form action="{{ route('soal2-process') }}" method="POST">
             @csrf
             <div class="mb-3">
-              <label for="recipient-name" class="col-form-label">masukan contoh: 12 </label>
+              <label for="recipient-name" class="col-form-label"> </label>
               <input type="text" class="form-control" id="recipient-name" name="kategori">
             </div>
           <div class="modal-footer">

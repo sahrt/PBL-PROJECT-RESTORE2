@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class alumni extends Model
 {
     use HasFactory;
+
+    public function jurusan()
+    {
+        return $this->belongsTo(jurusan::class);
+    }
 }

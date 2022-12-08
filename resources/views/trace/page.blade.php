@@ -56,7 +56,7 @@
               <input type="hidden" name="id_user" value="{{ $user->id }}">
               <input type="hidden" name="nisn" value="{{ $user->nisn }}">
             <div class="title pt-4">
-                <h4>1. Sebutkan sumberdana dalam pembiayaan kuliah ?</h4>
+                <h4>1. Darimana sumberdana pembiayaan Sekolah Anda ?</h4>
                </div>
             <div class="container"> 
     
@@ -74,7 +74,7 @@
                 <button class="btn  button"  type="button">
                  <input type="radio" name="akademi" id="from-AFIRMASI" value="bidikmisi">
                  <label class="form-check-label" for="from-AFIRMASI" >
-                  Beasiswa BidikMisi
+                  Beasiswa KIPK
                 </label> 
               
              
@@ -84,31 +84,11 @@
                 <button class="btn  button"  type="button">
                  <input type="radio" name="akademi" id="from-AFIRMASI" value="PPA">
                  <label class="form-check-label" for="from-AFIRMASI" >
-                  Beasiswa PPA
+                  Beasiswa Perusahaan/Swasta
                 </label> 
               
                 </button>
               </div>
-            
-                <div class="  label-background form-check border rounded"  style="padding:5px; margin: 2px; ">
-                  <button class="btn  button"  type="button">
-                   <input type="radio" name="akademi" id="from-AFIRMASI" value="AFIRMASI">
-                   <label class="form-check-label" for="from-AFIRMASI" >
-                   Beasiswa AFIRMASI
-                  </label> 
-                
-                  </button>
-                </div>
-
-                <div class="  label-background form-check border rounded"  style="padding:5px; margin: 2px; ">
-                  <button class="btn  button"  type="button">
-                   <input type="radio" name="akademi" id="from-AFIRMASI" value="Swasta">
-                   <label class="form-check-label" for="from-AFIRMASI" >
-                    Beasiswa Perusahaan / Swasta
-                  </label> 
-                
-                  </button>
-                </div>
 
                 <div class="  label-background form-check border rounded" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="padding:5px; margin: 2px; ">
                   <button class="btn  button"  type="button">
@@ -140,7 +120,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Tuliskan Nama Beasiswa</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Tuliskan Sumberdana Lainya</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">

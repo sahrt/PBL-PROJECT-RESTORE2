@@ -6,8 +6,8 @@
     background-color: #1751a8;
 }
 </style>
-<div class="row justify-content-center" style="margin-bottom: 100px">
-    <div class="image-section justify-content-center d-flex mt-5">
+<div class="row justify-content-center" style="margin-bottom: 55px">
+    <div class="image-section justify-content-center d-flex mt-4">
         <img class="mb-4" src="{{ asset('assets/img/logo.png') }}" width="120px">
     </div>
     <div class="title text-center text-white">
