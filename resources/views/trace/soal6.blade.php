@@ -61,7 +61,7 @@
                  <label class="form-check-label" for="from-AFIRMASI" >
                   Dari Pekerjaan Utama (Rp.)
                 </label>
-                 <input class="form-control" type="number" name="gaji_utama" id="from-AFIRMASI"  required>
+                 <input class="form-control" type="text"  name="gaji_utama" id="from-AFIRMASI"  required>
                  
               
               </div>

@@ -43,7 +43,7 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        $viewAlumni = Tracer_answer::latest()->paginate(5);
+        $viewAlumni = alumni::latest()->paginate(5);
         $alumni = alumni::count();
         $bekerja = Tracer_answer::where('tema', 'Bekerja(Pegawai)')->count();
         $wirausaha = Tracer_answer::where('tema', 'Berwirausaha')->count();

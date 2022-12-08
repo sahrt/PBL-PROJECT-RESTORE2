@@ -126,6 +126,9 @@ class TraceController extends Controller
             $user = Tracer_answer::where('alumni_id', $key->id)->first();
             $user->akademi = $request->akademi;
             $user->save();
+            $data = alumni::find($request->id_user)->first();
+            $data->tracer_answer_id = $user->id;
+            $data->save();
             return redirect()->route('viewSoal', ['soal' => 'soal2']);
         } else if (Tracer_answer::where('alumni_id', $key->id)->first() == null) {
             $request->validate([
@@ -138,7 +141,7 @@ class TraceController extends Controller
             $user->akademi = $request->akademi;
             $user->save();
             $data = alumni::find($request->id_user)->first();
-            $data->trace_answer_id = $user->id;
+            $data->tracer_answer_id = $user->id;
             $data->save();
 
             return redirect()->route('viewSoal', ['soal' => 'soal2']);

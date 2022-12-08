@@ -52,19 +52,30 @@
                               <th>Nama</th>
                               <th>Email</th>
                               <th>Nomor Hp</th>
-                              <th>Jurusan</th>
+                              <th>Jurusan</th> 
                               <th>Tahun Lulus</th>
                               <th>Status</th>
+                              <th>Pendapatan</th>
                             </tr>
                             @forelse($viewAlumni as $data) 
                             <tr>
-                              <td>{{ $data->alumni->nisn }}</td>
-                              <td>{{$data->alumni->name}}</td>
-                              <td>{{$data->alumni->email}}</td>
-                              <td>{{$data->alumni->nomer}}</td>
-                              <td>{{$data->alumni->jurusan->nama_jurusan}}</td>
-                              <td>{{$data->alumni->tahun_lulus}}</td>
-                              <td>{{ $data->tema }}</td>
+                                <td>{{ $data->nisn }}</td>
+                                <td>{{$data->name}}</td>
+                                <td>{{$data->email}}</td>
+                                <td>{{$data->nomer}}</td>
+                                <td>{{$data->jurusan->nama_jurusan}}</td>
+                                <td>{{$data->tahun_lulus}}</td>
+                                @if ($data->tracer_answer === null)
+                                    <td>Belum Diketahui</td>
+                                @else
+                                    <td>{{ $data->tracer_answer->tema }}</td>
+                                @endif
+                            
+                                @if ($data->tracer_answer === null)
+                                    <td>Belum Diketahui</td>
+                                @else
+                                    <td>Rp. {{ $data->tracer_answer->gaji_utama }}</td>
+                                @endif
                             </tr>
                             @empty
                             <tr>
