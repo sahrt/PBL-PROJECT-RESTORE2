@@ -10,7 +10,7 @@ class alumniController extends Controller
 {
     public function getAll()
     {
-        $data = alumni::all()->orderBy('id', 'desc');
+        $data = alumni::orderBy('id', 'desc')->get();
 
         return response()->json($data, 200);
     }
@@ -20,10 +20,10 @@ class alumniController extends Controller
         $validateData = $request->validate([
             'jurusan_id' => 'required',
             'nisn' => 'required|min:10',
-            'nik' => 'required:min:16',
-            'nis' => 'required:min4',
+            'nik' => 'required|min:16',
+            'nis' => 'required|min:4',
             'name' => 'required',
-            'email' => 'required|unique',
+            'email' => 'required|unique:alumnis',
             'nomer' => 'required|min:10',
             'tahun_lulus' => 'required',
         ]);
@@ -50,12 +50,12 @@ class alumniController extends Controller
             'nik' => 'required:min:16',
             'nis' => 'required:min4',
             'name' => 'required',
-            'email' => 'required|unique',
+            'email' => 'required',
             'nomer' => 'required|min:10',
             'tahun_lulus' => 'required',
         ]);
 
-        $data = alumni::where('id', '=', $request->email)->first();
+        $data = alumni::where('id', '=', $request->id)->first();
         $data->jurusan_id = $request->jurusan_id;
         $data->nisn = $request->nisn;
         $data->nik = $request->nik;
@@ -71,7 +71,7 @@ class alumniController extends Controller
 
     public function destroye(Request $request)
     {
-        $data = alumni::where('id', '=', $request->email)->first();
+        $data = alumni::where('id', '=', $request->id)->first();
 
         if (!empty($data)) {
             $data->delete();

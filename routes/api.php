@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\API\Auth\AuthController;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\auth\API\jurusanController;
+use App\Http\Controllers\API\Auth\AuthController;
+use App\Http\Controllers\API\alumni\alumniController;
+use App\Http\Controllers\API\jurusan\jurusanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,24 +18,38 @@ use App\Http\Controllers\auth\API\jurusanController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
+// API CRUD table Alumni
 Route::group(['prefix' => 'alumni'], function () {
-    Route::group(['middleware' => 'auth:sanctum'], function () {
+    Route::group(['middleware' => 'auth:api'], function () {
         Route::get('get_all', [alumniController::class, 'getAll']);
         Route::post('tambah', [alumniController::class, 'store']);
         Route::post('update', [alumniController::class, 'update']);
         Route::post('delete', [alumniController::class, 'destroye']);
     });
 });
+//end API CRUD table Alumni
 
-Route::post('addjurusan', [jurusanController::class, 'ProcessAddJurusan']);
-Route::post('ubahjurusan', [jurusanController::class, 'updtJurusan']);
+// API CRUD table Jurusan
+Route::group(['prefix' => 'jurusan'], function () {
+    Route::group(['middleware' => 'auth:api'], function () {
+        Route::get('get_all', [jurusanController::class, 'getAll']);
+        Route::post('tambah', [jurusanController::class, 'store']);
+        Route::post('update', [jurusanController::class, 'update']);
+        Route::post('delete', [jurusanController::class, 'destroye']);
+    });
+});
+//end API CRUD table Jurusan
+
+
+// Route::post('addjurusan', [jurusanController::class, 'ProcessAddJurusan']);
+// Route::post('ubahjurusan', [jurusanController::class, 'updtJurusan']);
 
 
 
