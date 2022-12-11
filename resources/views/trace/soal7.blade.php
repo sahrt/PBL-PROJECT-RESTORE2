@@ -130,7 +130,7 @@
               </label> 
               </div>
               <div class="  label-background form-check border rounded "  style="padding:15px; margin: 2px; ">
-                <input type="radio" name="dampak_corona" id="from-AFIRMASI" >
+                <input type="radio" class="akibat" name="dampak_corona" id="from-AFIRMASI" >
                  <label class="form-check-label " for="from-AFIRMASI" >
                   Lainya
               </label> 
