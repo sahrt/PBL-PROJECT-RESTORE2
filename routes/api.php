@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\Auth\AuthController;
 use App\Http\Controllers\API\alumni\alumniController;
 use App\Http\Controllers\API\jurusan\jurusanController;
-
+use App\Http\Controllers\API\trace\traceController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -50,24 +50,29 @@ Route::group(['prefix' => 'jurusan'], function () {
 
 // Route::post('addjurusan', [jurusanController::class, 'ProcessAddJurusan']);
 // Route::post('ubahjurusan', [jurusanController::class, 'updtJurusan']);
+//route alumni
+Route::get('login-alumni', [traceController::class, 'login']);
+Route::post('loginProcess', [traceController::class, 'loginProcess']);
+//end routing alumni
 
 
 
-Route::prefix('tracer_study')->group(function () {
 
-    Route::post('login_alumni', [jurusanController::class, 'loginProcess']);
-    Route::post('view_soal1', [jurusanController::class, 'viewSoal1']);
-    Route::post('ubahjurusan', [jurusanController::class, 'soal1Process']);
-    Route::post('ubahjurusan', [jurusanController::class, 'viewSoal2']);
-    Route::post('ubahjurusan', [jurusanController::class, 'soal2Process']);
-    Route::post('ubahjurusan', [jurusanController::class, 'viewSoal3']);
-    Route::post('ubahjurusan', [jurusanController::class, 'soal3Process']);
-    Route::post('ubahjurusan', [jurusanController::class, 'viewSoal4']);
-    Route::post('ubahjurusan', [jurusanController::class, 'soal4Process']);
-    Route::post('ubahjurusan', [jurusanController::class, 'viewSoal5']);
-    Route::post('ubahjurusan', [jurusanController::class, 'soal5Process']);
-    Route::post('ubahjurusan', [jurusanController::class, 'viewSoal6']);
-    Route::post('ubahjurusan', [jurusanController::class, 'soal6Process']);
-    Route::post('ubahjurusan', [jurusanController::class, 'viewSoal7']);
-    Route::post('ubahjurusan', [jurusanController::class, 'soal7Process']);
-});
+    Route::post('soal1Process', [traceController::class, 'soal1Process']);
+
+    //soal2
+    Route::post('soal2Process', [traceController::class, 'soal2Process']);
+    //soal3
+    Route::post('soal3Process', [traceController::class, 'soal3Process']);
+    //soal4
+    Route::post('soal4Process', [traceController::class, 'soal4Process']);
+    //soal5
+    Route::post('soal5Process', [traceController::class, 'soal5Process']);
+    //soal6
+    Route::post('soal6Process', [traceController::class, 'soal6Process']);
+    //soal7
+    Route::post('soal7Process', [traceController::class, 'soal7Process']);
+    //soal8
+    Route::post('soal8Process',[traceController::class,'soal8Process']);
+    //finish
+
