@@ -27,6 +27,45 @@ class traceController extends Controller
 
         return response()->json($data, 200);
     }
+    public function destroyeTrace(Request $request)
+    {
+        $data = Tracer_answer::where('id', '=', $request->id)->first();
+
+        if (!empty($data)) {
+            $data->delete();
+            return response()->json($data, 200);
+        } else {
+            return response()->json([
+                'error' => 'data tidak ditemukan'
+            ], 404);
+        }
+    }
+    public function destroyePrestasi(Request $request)
+    {
+        $data = Prestasi::where('id', '=', $request->id)->first();
+
+        if (!empty($data)) {
+            $data->delete();
+            return response()->json($data, 200);
+        } else {
+            return response()->json([
+                'error' => 'data tidak ditemukan'
+            ], 404);
+        }
+    }
+    public function destroyePunyaPrestasi(Request $request)
+    {
+        $data = Punya_Prestasi::where('id', '=', $request->id)->first();
+
+        if (!empty($data)) {
+            $data->delete();
+            return response()->json($data, 200);
+        } else {
+            return response()->json([
+                'error' => 'data tidak ditemukan'
+            ], 404);
+        }
+    }
 
     public function loginProcess(Request $request)
     {

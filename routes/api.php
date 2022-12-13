@@ -63,6 +63,11 @@ Route::get('read-data',[traceController::class,'readTrace']);
 Route::get('read-prestasi',[traceController::class,'readPrestasi']);
 Route::get('read-punya-prestasi',[traceController::class,'readPunyaPrestasi']);
 
+//delete data tracer
+Route::get('delete-read-data',[traceController::class,'destroyeTrace']);
+Route::get('delete-read-prestasi',[traceController::class,'destroyePrestasi']);
+Route::get('delete-read-punya-prestasi',[traceController::class,'destroyePunyaPrestasi']); 
+
 
 
 
