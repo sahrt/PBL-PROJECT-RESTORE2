@@ -7,6 +7,9 @@ use App\Http\Controllers\API\Auth\AuthController;
 use App\Http\Controllers\API\alumni\alumniController;
 use App\Http\Controllers\API\jurusan\jurusanController;
 use App\Http\Controllers\API\trace\traceController;
+use App\Http\Controllers\app\Http\Controllers\API\trace\traceController as APITraceTraceController;
+use App\Http\Controllers\Http\Controllers\API\trace\traceController as TraceTraceController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -55,9 +58,17 @@ Route::get('login-alumni', [traceController::class, 'login']);
 Route::post('loginProcess', [traceController::class, 'loginProcess']);
 //end routing alumni
 
+//read data tracer
+Route::get('read-data',[traceController::class,'readTrace']);
+Route::get('read-prestasi',[traceController::class,'readPrestasi']);
+Route::get('read-punya-prestasi',[traceController::class,'readPunyaPrestasi']);
 
 
 
+
+
+
+//route soal proseess
     Route::post('soal1Process', [traceController::class, 'soal1Process']);
 
     //soal2

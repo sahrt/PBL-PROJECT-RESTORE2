@@ -11,6 +11,23 @@ use App\Models\Prestasi;
 
 class traceController extends Controller
 {
+    public function readTrace () {
+        $data = Tracer_answer::orderBy('id','desc')->get();
+        
+        return response()->json($data, 200);
+
+    }
+    public function readPrestasi (){
+        $data =  Prestasi::orderBy('id','desc')->get();
+
+        return response()->json($data, 200);
+    }
+    public function readPunyaPrestasi (){
+        $data = Punya_Prestasi::orderBy('id','desc')->get();
+
+        return response()->json($data, 200);
+    }
+
     public function loginProcess(Request $request)
     {
 
