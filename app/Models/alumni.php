@@ -6,10 +6,13 @@ use App\Models\Jurusan;
 use App\Models\Tracer_answer;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Laravel\Passport\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
+
 
 class alumni extends Model
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory, Notifiable;
 
     public function tracer_answer()
     {

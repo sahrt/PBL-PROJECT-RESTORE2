@@ -11,19 +11,21 @@ use App\Models\Prestasi;
 
 class traceController extends Controller
 {
-    public function readTrace () {
-        $data = Tracer_answer::orderBy('id','desc')->get();
-        
-        return response()->json($data, 200);
-
-    }
-    public function readPrestasi (){
-        $data =  Prestasi::orderBy('id','desc')->get();
+    public function readTrace()
+    {
+        $data = Tracer_answer::orderBy('id', 'desc')->get();
 
         return response()->json($data, 200);
     }
-    public function readPunyaPrestasi (){
-        $data = Punya_Prestasi::orderBy('id','desc')->get();
+    public function readPrestasi()
+    {
+        $data =  Prestasi::orderBy('id', 'desc')->get();
+
+        return response()->json($data, 200);
+    }
+    public function readPunyaPrestasi()
+    {
+        $data = Punya_Prestasi::orderBy('id', 'desc')->get();
 
         return response()->json($data, 200);
     }
@@ -75,33 +77,69 @@ class traceController extends Controller
             'nisn' => 'required|min:4',
         ]);
 
-        $data = alumni::where('nisn', '=', $credentials)->orwhere('nik', '=', $credentials)->orwhere('nis', '=', $credentials)->first();
-     
+        $login_detail = request(['nisn']);
 
-        
-        //kita check di database apakah ada nimnya
-        $finish =  Tracer_answer::select('status')->where('alumni_id', $data->id)->first();
+        $nisn = alumni::where('nisn', '=', $login_detail)->first();
+        $nik = alumni::where('nik', '=', $login_detail)->first();
+        $nis = alumni::where('nis', '=', $login_detail)->first();
 
+        if ($nisn) {
+            $user = $nisn;
 
-        //bilah mana $finis  null maka kita membuat pengimputan data baru
-        if ($finish == null or $finish->status == null) {
+            $tokenResult = $user->createToken('AccessToken');
+            $token = $tokenResult->token;
+            $token->save();
 
-            return 'login berhasil'.$data->name." ".$data->id."/".$data->nisn;
+            return response()->json([
+                'access_token' => $tokenResult->accessToken,
+                'token_id' => $token->id,
+                'alumni_id' => $user->id,
+                'nisn' => $user->nisn,
+                'nama' => $user->name,
+                'email' => $user->email
+            ], 200);
+        } elseif ($nik) {
+            $user = $nik;
+
+            $tokenResult = $user->createToken('AccessToken');
+            $token = $tokenResult->token;
+            $token->save();
+
+            return response()->json([
+                'access_token' => $tokenResult->accessToken,
+                'token_id' => $token->id,
+                'alumni_id' => $user->id,
+                'nik' => $user->nik,
+                'nama' => $user->name,
+                'email' => $user->email
+            ], 200);
+        } elseif ($nis) {
+            $user = $nis;
+
+            $tokenResult = $user->createToken('AccessToken');
+            $token = $tokenResult->token;
+            $token->save();
+
+            return response()->json([
+                'access_token' => $tokenResult->accessToken,
+                'token_id' => $token->id,
+                'alumni_id' => $user->id,
+                'nis' => $user->nis,
+                'nama' => $user->name,
+                'email' => $user->email
+            ], 200);
         }
-        if ($finish->status == 'finised') {
 
-            //misalnya user melkukan pengisina maka akan dilempar ke menu login kembali 
-            //kemudian dilakukan penghapusan session
-            return 'Anda Telah Mengisi Tracer Study '.$data->name."/".$data->nisn;
-        }
-    
+        return response()->json([
+            'error' => 'login gagal. Cek Kembali detaile login'
+        ], 401);
     }
 
     //membuat authtentikasi apakah user benar beanr belum mengisi 
 
 
     //fungsi menampilkan soal
- 
+
 
     //soal 1
 
@@ -159,7 +197,7 @@ class traceController extends Controller
     public function soal3Process(Request $request)
     {
 
-        
+
 
         if ($request->tema == "Bekerja (Pegawai)" or $request->tema == "Bekerja (Pegawai) dan wirausaha") {
             $request->validate([
@@ -314,7 +352,7 @@ class traceController extends Controller
 
             //memberikan status pada tabel tracer answer bahwa benar sudah selesai
             $data =  Tracer_answer::where('alumni_id', $request->id)->first();
-            $data->id_punya_prestasi = $id_punya_prestasi;  
+            $data->id_punya_prestasi = $id_punya_prestasi;
             $data->status = 'finised';
             $data->save();
 

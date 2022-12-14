@@ -330,7 +330,7 @@ class TraceController extends Controller
 
             //memberikan status pada tabel tracer answer bahwa benar sudah selesai
             $data =  Tracer_answer::where('alumni_id', $key->id)->first();
-            $data->id_punya_prestasi = $id_punya_prestasi;  
+            $data->id_punya_prestasi = $id_punya_prestasi;
             $data->status = 'finised';
             $data->save();
 
