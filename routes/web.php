@@ -19,9 +19,9 @@ use App\Http\Controllers\TraceController;
 Route::get('/', [TraceController::class, 'index']);
 Route::post('/pilih-user', [TraceController::class, 'choseUser'])->name('pilih-user');
 //end main page
-Route::get('/login-admin', [AdminController::class, 'index']);
+Route::get('/login-admin', [AdminController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/process-loginAdmin', [AdminController::class, 'processLogin'])->name('loginAdmin');
-Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 Route::get('/logout', [AdminController::class,  'logout'])->name('logout');
 
 //route kondisi
@@ -47,7 +47,7 @@ Route::get('/delete-jurusan/{id}', [AdminController::class, 'deleteJurusan'])->n
 //route alumni
 Route::get('/login-alumni', [TraceController::class, 'login'])->name('login-alumni');
 Route::post('/process-login', [TraceController::class, 'loginProcess'])->name('loginProcess');
-Route::get('/process-login/auth', [TraceController::class,'authenticateSiswa'])->name('auth-login');
+Route::get('/process-login/auth', [TraceController::class, 'authenticateSiswa'])->name('auth-login');
 //end routing alumni
 
 //auticae siswa
@@ -74,9 +74,9 @@ Route::prefix('/tracer-study/qusetion')->group(function () {
     //soal7
     Route::post('/soal7/process', [TraceController::class, 'soal7Process'])->name('soal7-process');
     //soal8
-    Route::post('/soal8/process',[TraceController::class,'soal8Process'])->name('soal8-process');
+    Route::post('/soal8/process', [TraceController::class, 'soal8Process'])->name('soal8-process');
     //finish
-    Route::get('/finish', [TraceController::class,'pageSuccess'])->name('finish-page');
+    Route::get('/finish', [TraceController::class, 'pageSuccess'])->name('finish-page');
     //backHome
-    Route::get('finish/backhome', [TraceController::class,'backHome'])->name('back-home');
+    Route::get('finish/backhome', [TraceController::class, 'backHome'])->name('back-home');
 });

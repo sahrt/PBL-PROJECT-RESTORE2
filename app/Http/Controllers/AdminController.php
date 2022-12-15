@@ -41,13 +41,14 @@ class AdminController extends Controller
         return redirect('/');
     }
 
-    public function dashboard()
+    public function dashboard(Request $request)
     {
         $viewAlumni = alumni::latest()->paginate(5);
         $alumni = alumni::count();
         $bekerja = Tracer_answer::where('tema', 'Bekerja(Pegawai)')->count();
         $wirausaha = Tracer_answer::where('tema', 'Berwirausaha')->count();
         $kuliah = Tracer_answer::where('tema', 'Melanjutkan Kuliah')->count();
+
         return view('admin.index', [
             'viewAlumni' => $viewAlumni,
             'alumni' => $alumni,

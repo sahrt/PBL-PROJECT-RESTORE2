@@ -18,10 +18,10 @@ class TraceController extends Controller
         $session =  $request->session()->get('key');
 
 
-        if ($session == !null AND $start == null) {
+        if ($session == !null and $start == null) {
             $jurusan = $request->session()->get('jurusan');
-        
-            return redirect()->route('viewSoal', ['soal' => 'profile' , 'user' => $session ]);
+
+            return redirect()->route('viewSoal', ['soal' => 'profile', 'user' => $session]);
         }
         return view('landing');
     }
@@ -32,9 +32,9 @@ class TraceController extends Controller
         $session =  $request->session()->get('key');
 
 
-        if ($session == !null AND $start == null) {
+        if ($session == !null and $start == null) {
             $jurusan = $request->session()->get('jurusan');
-            return redirect()->route('viewSoal', ['soal' => 'profile' , 'user' => $session]);
+            return redirect()->route('viewSoal', ['soal' => 'profile', 'user' => $session]);
         }
         if ($request->tipe == 1) {
             return redirect('/login-alumni');
@@ -49,10 +49,10 @@ class TraceController extends Controller
         $session =  $request->session()->get('key');
 
 
-        if ($session == !null AND $start == null) {
+        if ($session == !null and $start == null) {
             $jurusan = $request->session()->get('jurusan');
             $session->jurusan_id = $jurusan->nama_jurusan;
-            return redirect()->route('viewSoal', ['soal' => 'profile' , 'user' => $session]);
+            return redirect()->route('viewSoal', ['soal' => 'profile', 'user' => $session]);
         }
         $jurusan['jurusan'] = Jurusan::all();
         return view('trace.login', $jurusan);
@@ -101,11 +101,11 @@ class TraceController extends Controller
         //bilah mana $finis  null maka kita membuat pengimputan data baru
         if ($finish == null or $finish->status == null) {
             $key = $request->session()->get('key');
-            $jurusan = Jurusan::where('id',$key->jurusan_id)->first();
-            $jurusan = $request->session()->put('jurusan',$jurusan);
+            $jurusan = Jurusan::where('id', $key->jurusan_id)->first();
+            $jurusan = $request->session()->put('jurusan', $jurusan);
             $jurusan = $request->session()->get('jurusan');
             $key->jurusan_id = $jurusan->nama_jurusan;
-            return redirect()->route('viewSoal', ['soal' => 'profile' , 'user' => $key]);
+            return redirect()->route('viewSoal', ['soal' => 'profile', 'user' => $key]);
         }
         if ($finish->status == 'finised') {
 
@@ -115,7 +115,8 @@ class TraceController extends Controller
             return redirect()->route('login-alumni')->with('loginError', 'Maaf Anda Telah Mengisi');
         }
     }
-    public function start (Request $request, $soal){
+    public function start(Request $request, $soal)
+    {
         $start = $request->session()->get('start');
         $key = $request->session()->get('key');
         $key = $request->session()->get('key');
@@ -125,16 +126,16 @@ class TraceController extends Controller
             return redirect()->route('login-alumni');
         }
         if ($start == null) {
-            $start = $request->session()->put('start','mulai');
+            $start = $request->session()->put('start', 'mulai');
             return view('trace/' . $soal, ['user' => $key]);
         } else {
-            return redirect()->route('viewSoal',['soal' =>'page']);
+            return redirect()->route('viewSoal', ['soal' => 'page']);
         }
     }
 
     //fungsi menampilkan soal
     public function viewSoal(Request $request, $soal)
-    {   
+    {
 
         $key = $request->session()->get('key');
         if ($key == !null) {
@@ -162,7 +163,7 @@ class TraceController extends Controller
             $user = Tracer_answer::where('alumni_id', $key->id)->first();
             $user->akademi = $request->akademi;
             $user->save();
-            $data = alumni::where('id',$key->id)->first();
+            $data = alumni::where('id', $key->id)->first();
             $data->tracer_answer_id = $user->id;
             $data->save();
             return redirect()->route('viewSoal', ['soal' => 'soal2']);
@@ -176,7 +177,7 @@ class TraceController extends Controller
             $user->nisn = $request->nisn;
             $user->akademi = $request->akademi;
             $user->save();
-            $data = alumni::where('id',$key->id)->first();
+            $data = alumni::where('id', $key->id)->first();
             $data->tracer_answer_id = $user->id;
             $data->save();
 
@@ -326,7 +327,7 @@ class TraceController extends Controller
     {
         //mengambil data nisn
         $key = $request->session()->get('key');
-       
+
 
         //pengechekan data apakah user akan mengupdate data
         if (Punya_Prestasi::where('id_nisn', $key->id)->first() == !null and Prestasi::where('alumni_id', $key->id)->first() == !null) {
