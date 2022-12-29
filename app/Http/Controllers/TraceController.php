@@ -136,10 +136,35 @@ class TraceController extends Controller
     //fungsi menampilkan soal
     public function viewSoal(Request $request, $soal)
     {
+        $key = $request->session()->get('key');
 
+        if ($key == !null) {
+            //melakukan refresh sesion baru
+            $data = alumni::where('id', $key->id)->first();
+            $key = $request->session()->put('key',$data);
+            $key = $request->session()->get('key');
+            return view('trace/' . $soal, ['user' => $key]);
+        } else {
+            return redirect()->route('login-alumni');
+        }
+       
+       
+    }
+
+    public function uploudImage (Request $request){
+        $request->validate([
+            'image'=>'required',
+            'image'=>'image|file|max:2024'
+        ]);
         $key = $request->session()->get('key');
         if ($key == !null) {
-            return view('trace/' . $soal, ['user' => $key]);
+            
+            $path = $request->file('image')->store('img_alumni');
+            $modal =  alumni::where('id', $key->id)->first();
+            $modal->foto =  $path;
+            $modal->save();
+
+            return redirect()->route('viewSoal','profile');
         } else {
             return redirect()->route('login-alumni');
         }

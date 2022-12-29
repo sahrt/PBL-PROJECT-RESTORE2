@@ -16,12 +16,42 @@
             <h2>Data Diri Anda</h2>
             <h4>Periksa Kembali Data Anda Apakah Benar ?</h4>
         </div>
+        
         <br>
         <div class="border p-5 shadow-lg" style="font-size: 100%;" >
         <table class="table table-borderless" style="font-weight:500; ">
           <tr>
             <td>
-                <img class="m-5" src="{{ asset('assets/img/logo.png') }}" width="120px">
+              <figure class="figure">
+                @if ($user->foto)
+                <img src="{{ asset('storage/'.$user->foto) }}" class=" img-thumbnail img-fluid rounded " alt="..." width="150">
+                @else
+                <img src="{{ asset('assets/img/user.png') }}" alt=""  width="150">
+                @endif
+                
+                <br>
+                <br>
+                <h6>Ubah foto ?</h6>
+
+                <figcaption class="figure-caption">
+                  <form action="{{ route('uploud') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                 
+                      <div class="input-group  input-group-sm mb-3">
+                        <input type="file" name="image" class=" @error('image') is-invalid @enderror" id="inputGroupFile02">
+                        <button class="btn btn-outline-light rounded" type="submit" id="inputGroupFileAddon04" style="background-color:blue;">upload</button>
+                        @error('image')
+                        <div class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                            
+                        @enderror
+                      </div>
+                      
+               
+                  </form>
+                </figcaption>
+              </figure>
             <td>
             <td>
                   <tr>

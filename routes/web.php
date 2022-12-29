@@ -58,6 +58,7 @@ Route::get('/process-login/auth', [TraceController::class, 'authenticateSiswa'])
 Route::prefix('/tracer-study/qusetion')->group(function () {
     Route::get('/status/{soal?}', [TraceController::class, 'start'])->name('Start');
     Route::get('/{soal}', [TraceController::class,  'viewSoal'])->name('viewSoal');
+    Route::post('/profile/uploud', [TraceController::class,  'uploudImage'])->name('uploud');
     //soal1
     Route::post('/soal1/process/', [TraceController::class, 'soal1Process'])->name('soal1-process');
 
