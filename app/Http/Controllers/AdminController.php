@@ -45,9 +45,9 @@ class AdminController extends Controller
     {
         $viewAlumni = alumni::latest()->paginate(5);
         $alumni = alumni::count();
-        $bekerja = Tracer_answer::where('tema', 'Bekerja(Pegawai)')->count();
-        $wirausaha = Tracer_answer::where('tema', 'Berwirausaha')->count();
-        $kuliah = Tracer_answer::where('tema', 'Melanjutkan Kuliah')->count();
+        $bekerja = Tracer_answer::where('soal1', 'Bekerja (fulltime/part time)')->count();
+        $wirausaha = Tracer_answer::where('soal1', 'Wiraswasta')->count();
+        $kuliah = Tracer_answer::where('soal1', 'Melanjutkan Pendidikan')->count();
 
         return view('admin.index', [
             'viewAlumni' => $viewAlumni,
@@ -55,12 +55,13 @@ class AdminController extends Controller
             'bekerja' => $bekerja,
             'wirausaha' => $wirausaha,
             'kuliah' => $kuliah
+
         ]);
     }
 
     public function kondisiAlumni($kondisi)
     {
-        $alumni = Tracer_answer::where('tema', $kondisi)->paginate(10);
+        $alumni = Tracer_answer::where('soal1', $kondisi)->paginate(10);
         return view('admin.kondisi.index', ['alumni' => $alumni, 'kondisi' => $kondisi]);
     }
 
@@ -154,5 +155,16 @@ class AdminController extends Controller
         $deleteData = jurusan::find($id);
         $deleteData->delete();
         return redirect()->route('view-jurusan')->with('info', 'Data Berhasil Dihapus');
+    }
+
+    public function showAlumniNotFinish (){
+
+    }
+
+    public function showAlumniFinish (){
+
+    }
+    public function showAlumnniYear (){
+        
     }
 }

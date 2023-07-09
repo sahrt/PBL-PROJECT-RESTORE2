@@ -57,27 +57,30 @@ Route::get('/process-login/auth', [TraceController::class, 'authenticateSiswa'])
 //route soal 1
 Route::prefix('/tracer-study/qusetion')->group(function () {
     Route::get('/status/{soal?}', [TraceController::class, 'start'])->name('Start');
-    Route::get('/{soal}', [TraceController::class,  'viewSoal'])->name('viewSoal');
+    Route::get('/{soal}/{id?}', [TraceController::class,  'viewSoal'])->name('viewSoal');
     Route::post('/profile/uploud', [TraceController::class,  'uploudImage'])->name('uploud');
-    //soal1
-    Route::post('/soal1/process/', [TraceController::class, 'soal1Process'])->name('soal1-process');
 
-    //soal2
-    Route::post('/soal2/process', [TraceController::class, 'soal2Process'])->name('soal2-process');
-    //soal3
-    Route::post('/soal3/process', [TraceController::class, 'soal3Process'])->name('soal3-process');
-    //soal4
-    Route::post('/soal4/process', [TraceController::class, 'soal4Process'])->name('soal4-process');
-    //soal5
-    Route::post('/soal5/process', [TraceController::class, 'soal5Process'])->name('soal5-process');
-    //soal6
-    Route::post('/soal6/process', [TraceController::class, 'soal6Process'])->name('soal6-process');
-    //soal7
-    Route::post('/soal7/process', [TraceController::class, 'soal7Process'])->name('soal7-process');
+    //view soal controller
+    Route::post('/viewsoal/process/', [TraceController::class, 'soalProsess'])->name('viewsoal-proses');
+    //soal1
+    // Route::post('/soal1/process/', [TraceController::class, 'soal1Process'])->name('soal1-process');
+
+    // //soal2
+    // Route::post('/soal2/process', [TraceController::class, 'soal2Process'])->name('soal2-process');
+    // //soal3
+    // Route::post('/soal3/process', [TraceController::class, 'soal3Process'])->name('soal3-process');
+    // //soal4
+    // Route::post('/soal4/process', [TraceController::class, 'soal4Process'])->name('soal4-process');
+    // //soal5
+    // Route::post('/soal5/process', [TraceController::class, 'soal5Process'])->name('soal5-process');
+    // //soal6
+    // Route::post('/soal6/process', [TraceController::class, 'soal6Process'])->name('soal6-process');
+    // //soal7
+    // Route::post('/soal7/process', [TraceController::class, 'soal7Process'])->name('soal7-process');
     //soal8
-    Route::post('/soal8/process', [TraceController::class, 'soal8Process'])->name('soal8-process');
-    //finish
-    Route::get('/finish', [TraceController::class, 'pageSuccess'])->name('finish-page');
+    Route::post('/soal11/process', [TraceController::class, 'soal11Process'])->name('soal11-process');
+
+    Route::get('/finish', [TraceController::class,'finish'])->name('finish');
     //backHome
-    Route::get('finish/backhome', [TraceController::class, 'backHome'])->name('back-home');
+    Route::get('/back', [TraceController::class, 'home'])->name('home');
 });

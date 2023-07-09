@@ -51,8 +51,7 @@
       <div class="row justify-content-center " style="padding: 20px;">
         <form action="{{ route('soal2-process') }}" method="post">
           @csrf
-              <input type="hidden" name="id" value="{{ $user->id }}">
-              <input type="hidden" name="nisn" value="{{ $user->nisn }}">
+            
             <div class="title pt-4">
                 <h4>2. Berapa Lama Anda Mendapat Pekerjaan Setelah atau Sebelum Anda Lulus Sekolah ?</h4>
                </div>

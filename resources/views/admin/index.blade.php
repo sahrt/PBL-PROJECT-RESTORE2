@@ -68,13 +68,13 @@
                                 @if ($data->tracer_answer === null)
                                     <td>Belum Diketahui</td>
                                 @else
-                                    <td>{{ $data->tracer_answer->tema }}</td>
+                                    <td>{{ $data->tracer_answer->soal1 }}</td>
                                 @endif
                             
                                 @if ($data->tracer_answer === null)
                                     <td>Belum Diketahui</td>
                                 @else
-                                    <td>Rp. {{ $data->tracer_answer->gaji_utama }}</td>
+                                    <td>Rp. {{ $data->tracer_answer->soal6 }}</td>
                                 @endif
                             </tr>
                             @empty

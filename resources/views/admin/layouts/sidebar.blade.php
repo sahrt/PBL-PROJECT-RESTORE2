@@ -2,9 +2,9 @@
 
 <link rel="stylesheet" href="/assets/css/admin.css">
 
-<header id="navbar" class="navbar navbar-dark sticky-top shadow" style="background-color: #09165c">
+<header id="navbar" class="navbar navbar-dark sticky-top shadow" style="background-color: #20a352">
     <img src="{{ asset('assets/img/logo.png') }}" alt="logo" width="50px" class="mx-2">
-    <a class="navbar-brand me-auto px-2 m-0" style="background-color: #09165c" href="/dashboard ">Admin Trace Study</a>
+    <a class="navbar-brand me-auto px-2 m-0" style="background-color: #20a352" href="/dashboard ">Admin Trace Study</a>
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -15,10 +15,10 @@
     </div>
   </header>
   
-  <div class="container-fluid">
+  <div class="container-fluid" >
     <div class="row">
-      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-        <div class="position-sticky pt-3 sidebar-sticky">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse " >
+        <div class="position-sticky sidebar-sticky " style="padding-top: 50px">
           <ul class="nav flex-column">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/dashboard">

@@ -13,4 +13,21 @@ class Tracer_answer extends Model
     {
         return $this->hasOne(alumni::class);
     }
+
+    protected $fillable= [
+        'alumni_id',
+        'nisn',
+        'soal1',
+        'soal2',
+        'soal3',
+        'soal4',
+        'soal5',
+        'soal6',
+        'soal7',
+        'soal8',
+        'soal9',
+        'soal10',
+        'id_punya_prestasi',
+        'status'
+    ];
 }

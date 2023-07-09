@@ -1,8 +1,9 @@
+
 @extends('layouts.main')
 
 
 @section('container')
-<section style="background-color: rgb(63, 63, 180);">
+<section style="background-color:#20a352;">
   <div class="container" style="padding-top: 50px;">
       <h1 style="color: white;">Hallo, {{$user->name}}</h1>
       <p style="color:wheat;">Ayo Persiapkan Tujuan Hidupmu, Masa Sekolah bukan Akhir segalahnya Semangat <br> Jadilah Orang Yang Bermanfaat</p>
@@ -118,7 +119,7 @@
         <div class="modal-footer">
           
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <a href="{{ route('viewSoal',['soal'=>'page']) }}">
+            <a href="{{ route('viewSoal',['soal'=>'viewsoal','id' => encrypt(1)] )}}">
                 <button type="button" class="btn btn-success">Mulai</button>
             </a>
          

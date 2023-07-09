@@ -3,7 +3,7 @@
 @section('container')
 <style>
     body{
-    background-color: #1751a8;
+    background-color: #20a352;
 }
 </style>
 <div class="row justify-content-center">

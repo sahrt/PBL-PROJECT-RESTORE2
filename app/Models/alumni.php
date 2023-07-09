@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Jurusan;
 use App\Models\Tracer_answer;
+use Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Laravel\Passport\HasApiTokens;
@@ -23,4 +24,6 @@ class alumni extends Model
     {
         return $this->belongsTo(Jurusan::class);
     }
+
+    
 }

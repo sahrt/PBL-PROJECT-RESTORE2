@@ -1,3 +1,6 @@
+@php
+    dd($array_soal);
+@endphp
 @extends('layouts/main')
 
 @section('container')
@@ -53,8 +56,6 @@
       <div class="row justify-content-center " style="padding: 20px;">
         <form action="{{ route('soal1-process') }}" method="POST">
           @csrf
-              <input type="hidden" name="id_user" value="{{ $user->id }}">
-              <input type="hidden" name="nisn" value="{{ $user->nisn }}">
             <div class="title pt-4">
                 <h4>1. Darimana sumberdana pembiayaan Sekolah Anda ?</h4>
                </div>
