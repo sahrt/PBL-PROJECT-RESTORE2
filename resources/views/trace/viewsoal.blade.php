@@ -50,7 +50,7 @@
         <h2 class="text-success">Pelacak Alumni</h2>
       </div>
 
-      <div class="row justify-content-center " style="padding: 20px;">
+      <div class="row" style="padding: 20px;">
         <form action="{{ route('viewsoal-proses') }}" method="post">
           @csrf
           <input type="hidden" name="id" value="{{ encrypt($id)}}">
@@ -101,15 +101,24 @@
                   </button>
                 </div>
                 @endforeach
-            <div class="button d-flex justify-content-between" style="margin-top: 20px; margin-left:10px; margin-right:10px;">
+             <div class="d-flex justify-content-between mt-4" >
+                @if ($id == 1 )
+                  
+                   <button type="button" class="btn btn-primary" disabled >
+                    <a class="text-white"  href="{{ route('viewSoal',['soal'=>'viewsoal','id'=> encrypt($id-1)]) }}">Back</a></button>
+                 
+                    
+                @else
+                  
+                  <button type="button" class="btn btn-primary">
+                    <a class="text-white" href="{{ route('viewSoal',['soal'=>'viewsoal','id'=> encrypt($id-1)]) }}">Back</a>  
+                  </button>
                 
-                 <a  href="{{ route('viewSoal',['soal'=>'viewsoal','id'=> encrypt($id-1)]) }}">
-                   <button type="button" class="btn btn-primary">Back</button>
-                </a>
+                @endif
+                 
+                
                
-                    <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Simpan</button>
-              
-               
+                <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Simpan</button>
             </div>
         </form>
       </div>    

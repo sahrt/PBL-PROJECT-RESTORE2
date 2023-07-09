@@ -61,14 +61,6 @@ class SoalSeeder extends Seeder
         ]);
 
         DB::table('soals')->insert([
-            "soal" => "berapa gaji yang diterima pada saat berkerja? ",
-                "answer1" => "500.000-1000.000",
-                'answer2' => "1000.000-1500.000",
-                "answer3" => " > 1500.000",
-                "answer4" => "0"
-        ]);
-
-        DB::table('soals')->insert([
             "soal" => "Pada saat bekerja, pada tingkat mana kompetensi KOMUNIKASI yang Anda perlukan dalam pekerjaan ?",
                 "answer1" => "Besar",
                 'answer2' => "Cukup Besar",
