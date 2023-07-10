@@ -110,10 +110,10 @@ class TraceController extends Controller
         //bilah mana $finis  null maka kita membuat pengimputan data baru
         if ($finish == null or $finish->status == null) {
             $key = $request->session()->get('key');
-            $jurusan = Jurusan::where('id', $key->jurusan_id)->first();
-            $jurusan = $request->session()->put('jurusan', $jurusan);
-            $jurusan = $request->session()->get('jurusan');
-            $key->jurusan_id = $jurusan->nama_jurusan;
+            $result = Jurusan::where('id', $key->jurusan_id)->first();
+            $request->session()->put('jurusan', $result);
+           
+
             return redirect()->route('viewSoal', ['soal' => 'profile']);
         }
         if ($finish->status == 'finised') {
@@ -164,6 +164,7 @@ class TraceController extends Controller
         
        
         $key = $request->session()->get('key');
+        $jurusan = $request->session()->get('jurusan');
        
        
         $resultSoal = null;
@@ -192,7 +193,7 @@ class TraceController extends Controller
             $data = alumni::where('id', $key->id)->first();
             $key = $request->session()->put('key',$data);
             $key = $request->session()->get('key');
-            return view('trace/' . $soal, ['user' => $key, 'array_soal'=>$resultSoal,'id'=>$id]);
+            return view('trace/' . $soal, ['user' => [$key, $jurusan], 'array_soal'=>$resultSoal,'id'=>$id]);
         } else {
             return redirect()->route('login-alumni');
         }
@@ -209,6 +210,9 @@ class TraceController extends Controller
         ]);
         $key = $request->session()->get('key');
         if ($key == !null) {
+            if($request->img == null){
+                return redirect()->route('viewSoal','profile')->with('danger','foto anda belum diimputkan');
+            }
             
             $path = $request->file('image')->store('img_alumni');
             $modal =  alumni::where('id', $key->id)->first();

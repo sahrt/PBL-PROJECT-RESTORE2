@@ -57,7 +57,7 @@
                 <h4>8. Pernah Memiliki Prestasi Pada Masa Sekolah</h4>
                </div>
             <div class="container"> 
-              <div class="  label-background form-check border rounded "data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"   style="padding:15px; margin: 2px; ">
+              <div class="label-background form-check border rounded"data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"   style="padding:15px; margin: 2px; ">
                  <input type="radio" name="corona" id="from-AFIRMASI" style="width: 20px;" value="">
                  <label class="form-check-label" for="from-AFIRMASI" >
                   Ya
@@ -65,7 +65,7 @@
 
               </div>
        
-              <div class="  label-background form-check border rounded"  style="padding:15px; margin: 2px; ">
+              <div class="label-background form-check border rounded"  style="padding:15px; margin: 2px; ">
                  <input type="radio" name="nama_prestasi" id="from-AFIRMASI2" value="tidak ada">
                  <label class="form-check-label" for="from-AFIRMASI2" >
                   Tidak

@@ -6,7 +6,7 @@
 @section('container')
 <section class="shadow-lg" style="background-color: #20a352;">
   <div class="container" style="padding-top: 50px;">
-      <h1 style="color: white;">Hallo, {{$user->name}}</h1>
+      <h1 style="color: white;">Hallo, {{$user[0]->name}}</h1>
       <p style="color:wheat;">Ayo Persiapkan Tujuan Hidupmu, Masa Sekolah bukan Akhir segalahnya Semangat <br> Jadilah Orang Yang Bermanfaat</p>
             @if (Session::has('success'))
       <div class="alert alert-success">
@@ -63,7 +63,7 @@
             <div class="container"> 
               <div class="  label-background form-check border rounded"  style="padding:5px; margin: 2px; ">
                 <button class="btn  button"  type="button">
-                 <input type="radio" name="soal" id="from-AFIRMASI" value="{{ $soal->answer1 }}" style="width: 20px;">
+                 <input type="radio" name="soal" id="from-AFIRMASI" value="{{ $soal->answer1 }}">
                  <label class="form-check-label" for="from-AFIRMASI" >
                 {{ $soal->answer1 }}
                 </label> 

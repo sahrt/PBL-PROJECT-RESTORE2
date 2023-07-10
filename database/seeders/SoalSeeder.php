@@ -81,7 +81,7 @@ class SoalSeeder extends Seeder
                 "answer1" => "tahun pertama kelulusan",
                 'answer2' => "tahun kedua setelah kelulusan",
                 "answer3" => "tahun ketiga setelah kelulusan",
-                "answer4" => "tahun kemempat setelah kelulusan"
+                "answer4" => "belum mendapatkan perkerjaan"
         ]);
 
         DB::table('soals')->insert([

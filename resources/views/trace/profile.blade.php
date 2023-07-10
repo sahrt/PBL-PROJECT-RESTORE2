@@ -1,11 +1,12 @@
 
+
 @extends('layouts.main')
 
 
 @section('container')
 <section style="background-color:#20a352;">
   <div class="container" style="padding-top: 50px;">
-      <h1 style="color: white;">Hallo, {{$user->name}}</h1>
+      <h1 style="color: white;">Hallo, {{$user[0]->name}}</h1>
       <p style="color:wheat;">Ayo Persiapkan Tujuan Hidupmu, Masa Sekolah bukan Akhir segalahnya Semangat <br> Jadilah Orang Yang Bermanfaat</p>
 
 
@@ -24,7 +25,7 @@
           <tr>
             <td>
               <figure class="figure">
-                @if ($user->foto)
+                @if ($user[0]->foto)
                 <img src="{{ asset('storage/'.$user->foto) }}" class=" img-thumbnail img-fluid rounded " alt="..." width="150">
                 @else
                 <img src="{{ asset('assets/img/user.png') }}" alt=""  width="150">
@@ -37,7 +38,9 @@
                 <figcaption class="figure-caption">
                   <form action="{{ route('uploud') }}" method="post" enctype="multipart/form-data">
                     @csrf
-                 
+                    @if(session('danger'))
+                        <p class="text-danger">{{ session('danger') }}</p>
+                    @endif
                       <div class="input-group  input-group-sm mb-3">
                         <input type="file" name="image" class=" @error('image') is-invalid @enderror" id="inputGroupFile02">
                         <button class="btn btn-outline-light rounded" type="submit" id="inputGroupFileAddon04" style="background-color:blue;">upload</button>
@@ -58,32 +61,32 @@
                   <tr>
                     <td>Nama </td>
                     <td> : </td>
-                    <td>{{ $user->name }}</td> 
+                    <td>{{ $user[0]->name }}</td> 
                   </tr>
                   
                   <tr>
                     <td>NISN </td>
                     <td> : </td>
-                    <td>{{ $user->nisn }}</td>
+                    <td>{{ $user[0]->nisn }}</td>
                   </tr>
                     
                   <tr>
                     <td>Jurusan </td>
                     <td> : </td>
-                    <td> {{ $user->jurusan_id }}</td>
+                    <td> {{ $user[1]->nama_jurusan }}</td>
                   </tr>
                    
                    
                   <tr>
                     <td>Nomer </td>
                     <td> : </td>
-                    <td>{{ $user->nomer }}</td>
+                    <td>{{ $user[0]->nomer }}</td>
                   </tr>
                     
                   <tr>
                     <td>Tahun Lulus </td>
                     <td> : </td>
-                    <td>{{ $user->tahun_lulus }}</td>
+                    <td>{{ $user[0]->tahun_lulus }}</td>
                   </tr>
                   <tr>
                     <td>
